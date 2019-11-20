@@ -31,13 +31,7 @@ pipeline {
               }
             }
             steps {
-                echo 'Deploying....'
-                try{
-                    sh 'make publish'
-                }
-                 catch (exc) {
-                    echo "Something didn't work and got some exceptions in deployment"
-                }
+                echo 'Deploying....'             
             }
         }
     }
