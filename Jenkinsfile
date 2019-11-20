@@ -23,13 +23,17 @@ pipeline {
                 echo currentBuild.result
                 echo currentBuild.displayName
                 sh 'echo "Step 1"'
-                 sh 'make check || true' 
-                junit '**/target/*.xml'
             }
         }
         stage('Deploy') {
+            when {
+              expression {
+                currentBuild.result == null || currentBuild.result == 'SUCCESS' 
+              }
+            }
             steps {
                 echo 'Deploying....'
+                sh 'make publish'
             }
         }
     }
