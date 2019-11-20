@@ -23,7 +23,7 @@ pipeline {
                 echo env.BUILD_TAG
                 echo currentBuild.result
                 echo currentBuild.displayName
-                sh 'echo "Step 1"'
+                //sh 'echo "Step 1"'
             }
         }
         stage('Deploy') {
@@ -47,9 +47,9 @@ pipeline {
         }
         failure {
             echo 'only when the Pipeline is currently in a "failed" state run, usually expressed in the Web UI with the red indicator.'
-           // mail to: 'hardik.gosai@einfochips.com',
-           //subject: "Pipeline has failed: ${currentBuild.fullDisplayName}",
-           // body: "Error in ${env.BUILD_URL}"
+            mail to: 'hardik.gosai@einfochips.com',
+            subject: "Pipeline has failed: ${currentBuild.fullDisplayName}",
+            body: "Error in ${env.BUILD_URL}"
         }
         unstable {
             echo 'current Pipeline has "unstable" state, usually by a failed test, code violations and other causes, in order to run. Usually represented in a web UI with a yellow indication.'
