@@ -72,6 +72,6 @@ node {
 def he(){
     x=2
     y=3
-    z=x+y
+    z=x+y as String
     echo z
 }
