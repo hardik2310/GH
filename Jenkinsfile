@@ -35,7 +35,7 @@ pipeline {
                     sh 'make publish'
                     echo 'Deploying....'
                 }
-                catch{
+                catch(exc){
                     echo "Something didn't work and got some exceptions in deploying"
                 }
             }
