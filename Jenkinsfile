@@ -19,6 +19,8 @@ pipeline {
                 echo 'Testing..'
                 echo env.PATH
                 echo env.BUILD_ID
+                echo env.BUILD_NUMBER
+                echo env.BUILD_TAG
                 echo currentBuild.result
                 echo currentBuild.displayName
                 sh 'echo "Step 1"'
