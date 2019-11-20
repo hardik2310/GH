@@ -41,7 +41,8 @@ pipeline {
               }
             }
             steps {
-                echo 'Deploying....'             
+                echo 'Deploying....'     
+                he()
             }
         }
     }
@@ -76,3 +77,6 @@ node {
          }
      }
  } 
+def he(){
+    echo 'hello'
+}
