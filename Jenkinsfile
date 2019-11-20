@@ -24,13 +24,13 @@ pipeline {
                 echo currentBuild.result
                 echo currentBuild.displayName
                 sh 'echo "Step 1"'
-                def auto_job = build job: jobName , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
+                @def auto_job = build job: jobName , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
                                                          string(name: 'PR_NAME', value: "${env.BRANCH_NAME}"),
                                                          string(name: 'CSU_branch', value: "master"), //Comment to not use common CSU_branch
                                                          string(name: 'CTU_branch', value: "master"), // Comment to not use common CSU_branch
                                                          string(name: 'Router_SSID', value: "wseco1_netgear-5G"),
                                                          string(name: 'Router_password', value: "04042018")], propagate: false
-                result = auto_job.result
+                @result = auto_job.result
                 echo result
             }
         }
