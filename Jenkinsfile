@@ -11,8 +11,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo ABC
-                sh 'make' 
+                echo ABC 
             }
         }
         stage('Test') {
