@@ -13,7 +13,6 @@ pipeline {
                 echo 'Building..'
                 echo ABC
                 sh 'make' 
-                archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
             }
         }
         stage('Test') {
@@ -24,6 +23,8 @@ pipeline {
                 echo currentBuild.result
                 echo currentBuild.displayName
                 sh 'echo "Step 1"'
+                 sh 'make check || true' 
+                junit '**/target/*.xml'
             }
         }
         stage('Deploy') {
