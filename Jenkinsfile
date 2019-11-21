@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    triggers {
+   /* triggers {
         cron('H */2 * * 1-3')
-    }
+    }*/
     environment {
         USE_JDK = 'true'
         ABC = 'hello world'
@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying....'     
-                //he()
+                he()
             }
         }
     }
