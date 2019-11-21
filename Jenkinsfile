@@ -22,7 +22,7 @@ pipeline {
                 echo 'Build Number : '+env.BUILD_NUMBER
                 echo 'Build Tag : '+env.BUILD_TAG
                 echo env.CHANGE_ID
-                env.BRANCH_NAME
+                echo env.BRANCH_NAME
                 //sh 'echo "Step 1"'
             }
         }
