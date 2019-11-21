@@ -21,8 +21,6 @@ pipeline {
                 echo 'Build Id : '+env.BUILD_ID
                 echo 'Build Number : '+env.BUILD_NUMBER
                 echo 'Build Tag : '+env.BUILD_TAG
-                echo 'Current Build Result : '+currentBuild.result
-                echo 'Current Build Displayname : '+currentBuild.displayName
                 //sh 'echo "Step 1"'
             }
         }
@@ -41,6 +39,8 @@ pipeline {
     post{
         always {
             echo 'always runs regardless of the completion status of the Pipeline run'
+            echo 'Current Build Result : '+currentBuild.result
+            echo 'Current Build Displayname : '+currentBuild.displayName
         }
         success {
             echo 'step will run only if the build is successful'
