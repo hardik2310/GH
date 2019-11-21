@@ -17,12 +17,12 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                echo 'environment path'+env.PATH
-                echo env.BUILD_ID
-                echo env.BUILD_NUMBER
-                echo env.BUILD_TAG
-                echo currentBuild.result
-                echo currentBuild.displayName
+                echo 'environment path : '+env.PATH
+                echo 'Build Id : 'env.BUILD_ID
+                echo 'Build Number : 'env.BUILD_NUMBER
+                echo 'Build Tag : 'env.BUILD_TAG
+                echo 'Current Build Result : 'currentBuild.result
+                echo 'Current Build Displayname : 'currentBuild.displayName
                 //sh 'echo "Step 1"'
             }
         }
