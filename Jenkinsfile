@@ -18,11 +18,11 @@ pipeline {
             steps {
                 echo 'Testing..'
                 echo 'environment path : '+env.PATH
-                echo 'Build Id : 'env.BUILD_ID
-                echo 'Build Number : 'env.BUILD_NUMBER
-                echo 'Build Tag : 'env.BUILD_TAG
-                echo 'Current Build Result : 'currentBuild.result
-                echo 'Current Build Displayname : 'currentBuild.displayName
+                echo 'Build Id : '+env.BUILD_ID
+                echo 'Build Number : '+env.BUILD_NUMBER
+                echo 'Build Tag : '+env.BUILD_TAG
+                echo 'Current Build Result : '+currentBuild.result
+                echo 'Current Build Displayname : '+currentBuild.displayName
                 //sh 'echo "Step 1"'
             }
         }
