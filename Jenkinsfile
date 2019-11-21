@@ -21,8 +21,7 @@ pipeline {
                 echo 'Build Id : '+env.BUILD_ID
                 echo 'Build Number : '+env.BUILD_NUMBER
                 echo 'Build Tag : '+env.BUILD_TAG
-                echo env.CHANGE_ID
-                echo env.BRANCH_NAME
+                
                 //sh 'echo "Step 1"'
             }
         }
@@ -43,6 +42,8 @@ pipeline {
             echo 'always runs regardless of the completion status of the Pipeline run'
             echo 'Current Build Result : '+currentBuild.result
             echo 'Current Build Displayname : '+currentBuild.displayName
+            echo env.CHANGE_ID
+            echo env.BRANCH_NAME
         }
         success {
             echo 'step will run only if the build is successful'
