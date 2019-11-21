@@ -1,7 +1,7 @@
 pipeline {
     agent any
    //triggers {
-     //   cron('H */2 * * 1-3')
+     //   cron('*/2 * * * *')
     //}
     environment {
         USE_JDK = 'true'
