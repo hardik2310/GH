@@ -8,6 +8,33 @@ pipeline {
         ABC = 'hello world'
     }
     stages {
+        stage('Run Tests') {
+            parallel {
+                stage('Test On Windows') {
+                    agent none
+                    steps {
+                        echo "steps"
+                    }
+                
+                    post {
+                        always {
+                            echo "always run for windows"
+                        }
+                    }
+                }
+                stage('Test On Linux') {
+                    agent none
+                    steps {
+                        echo "steps"
+                    }
+                    post {
+                        always {
+                            echo "always run for linux"
+                        }
+                    }
+                }
+            }
+            
         stage('Build') {
             steps {
                 echo 'Building..'
