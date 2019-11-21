@@ -70,10 +70,11 @@ node {
      }
  } 
 def he(){
-  /* def auto_job = build job: JOB_NAME , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
+    echo 'he function'
+    def auto_job = build job: JOB_NAME , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
                                                          string(name: 'PR_NAME', value: "${env.BRANCH_NAME}")], propagate: false
-
+    echo 'build over'
     result = auto_job.result   
-    */
+    
     echo 'abc'
 }
