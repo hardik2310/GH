@@ -1,8 +1,8 @@
 pipeline {
     agent any
-   triggers {
-        cron('*/2 * * * *')
-    }
+   //triggers {
+    //   cron('*/2 * * * *')
+    //}
     environment {
         USE_JDK = 'true'
         ABC = 'hello world'
