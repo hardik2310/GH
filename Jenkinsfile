@@ -17,7 +17,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                echo 'environment path ${env.PATH}'
+                echo 'environment path' ${env.PATH}
                 echo env.BUILD_ID
                 echo env.BUILD_NUMBER
                 echo env.BUILD_TAG
