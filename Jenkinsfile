@@ -34,7 +34,7 @@ pipeline {
             }
             steps {
                 echo 'Deploying....'     
-                he()
+               // he()
             }
         }
     }
