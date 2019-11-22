@@ -60,7 +60,8 @@ pipeline {
               }
             }
             steps {
-                echo 'Deploying....'     
+                echo 'Deploying....'   
+                he()
             }
         }
     }
@@ -85,7 +86,6 @@ pipeline {
             echo 'current Pipeline has "unstable" state.'
         }
     }
-    he()
 }
 node {
     stage('SampleTryCatch') {
@@ -95,10 +95,8 @@ node {
         catch (exc) {
              echo "Something didn't work and got some exceptions"
         }
-    }
-    
-} 
-
+    }  
+}
 def he(){
     echo 'he function'
    // def auto_job = build job: JOB_NAME , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
