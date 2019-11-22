@@ -78,9 +78,9 @@ pipeline {
         }
         failure {
             echo 'only when the Pipeline is currently in a "failed" state run.'
-            mail to: 'hardik.gosai@einfochips.com',
-            subject: "Pipeline has failed: ${currentBuild.fullDisplayName}",
-            body: "Error in ${env.BUILD_URL}"
+            //mail to: 'hardik.gosai@einfochips.com',
+            //subject: "Pipeline has failed: ${currentBuild.fullDisplayName}",
+            //body: "Error in ${env.BUILD_URL}"
         }
         unstable {
             echo 'current Pipeline has "unstable" state.'
