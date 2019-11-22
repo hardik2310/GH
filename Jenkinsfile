@@ -10,16 +10,6 @@ pipeline {
     }
     options{ lock resource: 'shared_resource_lock'}
     stages {
-        stage('will_already_be_locked') {
-            steps {
-                echo "I am locked before I enter the stage!"
-            }
-        }
-        stage('will_also_be_locked'){
-            steps{
-                echo "I am still locked!"
-            }
-        }
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
