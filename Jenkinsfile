@@ -1,5 +1,4 @@
 #!/usr/bin/env groovy
-@Library(['JenkinsSocketAPI','JenkinsSharedLibrary'])
 import PipelineSummary
 import GraphitePush
 pipeline {
