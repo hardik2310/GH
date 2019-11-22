@@ -84,9 +84,6 @@ pipeline {
         unstable {
             echo 'current Pipeline has "unstable" state, usually by a failed test, code violations and other causes, in order to run. Usually represented in a web UI with a yellow indication.'
         }
-        changed {
-            echo 'can only be run if the current Pipeline is running at a different state than the previously completed Pipeline'
-        }
     }
 }
 node {
