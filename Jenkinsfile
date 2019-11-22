@@ -1,3 +1,7 @@
+#!/usr/bin/env groovy
+@Library(['JenkinsSocketAPI','JenkinsSharedLibrary'])
+import PipelineSummary
+import GraphitePush
 pipeline {
     agent any
    //triggers {
@@ -60,7 +64,6 @@ pipeline {
             }
             steps {
                 echo 'Deploying....'     
-               // he()
             }
         }
     }
@@ -85,6 +88,7 @@ pipeline {
             echo 'current Pipeline has "unstable" state.'
         }
     }
+    he()
 }
 node {
     stage('SampleTryCatch') {
@@ -93,15 +97,20 @@ node {
         }
         catch (exc) {
              echo "Something didn't work and got some exceptions"
-         }
-     }
- } 
+        }
+    }
+    
+} 
+
 def he(){
     echo 'he function'
-    def auto_job = build job: JOB_NAME , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
-                                                         string(name: 'PR_NAME', value: "${env.BRANCH_NAME}")], propagate: false
-    echo 'build over'
-    result = auto_job.result   
+   // def auto_job = build job: JOB_NAME , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
+   //                                                     string(name: 'PR_NAME', value: "${env.BRANCH_NAME}")], propagate: false
+   // echo 'build over'
+   // result = auto_job.result   
+    PipelineSummary = new PipelineSummary()
+    job_summary_map = PipelineSummary.GetSummary(this, jobCount, failureList.size())
+    echo job_summary_map
     
     echo 'abc'
 }
