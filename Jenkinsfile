@@ -15,6 +15,7 @@ pipeline {
                     agent none
                     steps {
                         echo "steps"
+                        println "for run test"
                     }
                 
                     post {
