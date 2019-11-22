@@ -105,7 +105,7 @@ def he(){
    //                                                     string(name: 'PR_NAME', value: "${env.BRANCH_NAME}")], propagate: false
    // echo 'build over'
    // result = auto_job.result   
-    pipelineSummary = new PipelineSummary()
+    pipelineSummary = PipelineSummary()
     job_summary_map = pipelineSummary.GetSummary(this, jobCount, failureList.size())
     echo job_summary_map
     
