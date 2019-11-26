@@ -92,6 +92,9 @@ pipeline {
         unstable {
             echo 'current Pipeline has "unstable" state.'
         }
+        changed{
+            echo "output is changed.."
+        }
     }
 }
 node {
