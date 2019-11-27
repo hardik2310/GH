@@ -8,7 +8,9 @@ pipeline {
         USE_JDK = 'true'
         ABC = 'hello world'
     }
-    options{ lock resource: 'shared_resource_lock'}
+    lock(label: 'some_resource', variable: 'LOCKED_RESOURCE') {
+        echo env.LOCKED_RESOURCE
+    }
     stages {
         stage('Run Tests') {
             parallel {
