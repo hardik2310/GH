@@ -6,7 +6,7 @@ pipeline {
     //}
     environment {
         USE_JDK = 'true'
-        ABC = 'hello world'
+        ABC = 'environment variable ABC'
     }
    
     stages {
@@ -63,7 +63,7 @@ pipeline {
         stage('Deploy') {
             when {
               expression {
-                currentBuild.result != null || currentBuild.result == 'SUCCESS' 
+                 currentBuild.result == 'SUCCESS' 
               }
             }
             steps {
@@ -74,7 +74,7 @@ pipeline {
     }
     post{
         always {
-            echo 'always runs regardless of the completion status of the Pipeline run'
+            echo 'always runs'
             echo 'Current Build Result : '+currentBuild.result
             echo 'Current Build Displayname : '+currentBuild.displayName
             echo env.CHANGE_ID
