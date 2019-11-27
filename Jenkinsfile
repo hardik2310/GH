@@ -8,9 +8,7 @@ pipeline {
         USE_JDK = 'true'
         ABC = 'hello world'
     }
-    lock(label: 'some_resource', variable: 'LOCKED_RESOURCE') {
-        echo env.LOCKED_RESOURCE
-    }
+   
     stages {
         stage('Run Tests') {
             parallel {
@@ -100,24 +98,23 @@ pipeline {
     }
 }
 node {
+     
     stage('SampleTryCatch') {
+        step{
+            lock(label: 'some_resource', variable: 'LOCKED_RESOURCE') {
+        echo env.LOCKED_RESOURCE
+        }
         try {
             sh 'exit 1'
         }
         catch (exc) {
              echo "Something didn't work and got some exceptions"
         }
+        }
     }  
 }
 def he(){
     echo 'he function'
-   // def auto_job = build job: JOB_NAME , parameters: [string(name: 'PullReqId', value: "${env.CHANGE_ID}"), 
-   //                                                     string(name: 'PR_NAME', value: "${env.BRANCH_NAME}")], propagate: false
-   // echo 'build over'
-   // result = auto_job.result   
-    //pipelineSummary = PipelineSummary()
-    //job_summary_map = pipelineSummary.GetSummary(this, jobCount, failureList.size())
-    //echo job_summary_map
     
     echo 'abc'
 }
