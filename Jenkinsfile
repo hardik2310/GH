@@ -98,20 +98,19 @@ pipeline {
     }
 }
 node {
-     
-    stage('SampleTryCatch') {
-        step{
-            lock(label: 'some_resource', variable: 'LOCKED_RESOURCE') {
-        echo env.LOCKED_RESOURCE
+    try {
+        lock(resource: null, variable: 'LOCKED_RESOURCE') {
+            echo env.LOCKED_RESOURCE
+            stage('SampleTryCatch') {
+                step{
+                    sh 'exit 1'
+                }
+            }
         }
-        try {
-            sh 'exit 1'
-        }
-        catch (exc) {
-             echo "Something didn't work and got some exceptions"
-        }
-        }
-    }  
+    }
+    catch (exc) {
+        echo "Something didn't work and got some exceptions"
+    }
 }
 def he(){
     echo 'he function'
