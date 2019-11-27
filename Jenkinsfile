@@ -63,7 +63,7 @@ pipeline {
         stage('Deploy') {
             when {
               expression {
-                 currentBuild.result == 'SUCCESS' 
+                 currentBuild.result != 'SUCCESS' 
               }
             }
             steps {
