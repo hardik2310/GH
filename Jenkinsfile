@@ -63,7 +63,7 @@ pipeline {
         stage('Deploy') {
             when {
               expression {
-                 1==1
+                 1!=1
               }
             }
             steps {
