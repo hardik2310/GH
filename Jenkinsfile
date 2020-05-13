@@ -56,7 +56,7 @@ pipeline {
                 echo 'Build Id : '+env.BUILD_ID
                 echo 'Build Number : '+env.BUILD_NUMBER
                 echo 'Build Tag : '+env.BUILD_TAG
-                input('Do you want to proceed?')
+                // input('Do you want to proceed?')
                 //sh 'echo "Step 1"'
             }
         }
