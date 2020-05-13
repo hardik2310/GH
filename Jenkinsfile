@@ -97,6 +97,7 @@ pipeline {
         }
     }
 }
+${BUILD_URL}/consoleText
 node {
     try {
         lock(resource: null, variable: 'LOCKED_RESOURCE') {
