@@ -13,7 +13,7 @@ pipeline {
         stage('Run Tests') {
             parallel {
                 stage('Test On Windows') {
-                    agent any
+                    agent none
                     steps {
                         echo "steps"
                         println "for run test"
